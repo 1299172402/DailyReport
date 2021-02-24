@@ -3,6 +3,7 @@ name: CUPDailyReport
 on:
   push:
     branches: [ main ]
+  workflow_dispatch:
   schedule:
     - cron: '10 * * * *'
     # 现在UTC时间是19:30，北京时间是凌晨3:30
