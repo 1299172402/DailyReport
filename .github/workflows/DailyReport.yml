@@ -1,0 +1,26 @@
+name: CUPDailyReport
+
+on:
+  push:
+    branches: [ main ]
+  schedule:
+    - cron: '30 19 * * *'
+    # 现在UTC时间是19:30，北京时间是凌晨3:30
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: checkout actions
+    - uses: actions/checkout@v1
+
+    - name: Set up Python 3.7
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.7
+		
+    - name: Run
+      run: |
+        python DailyReport.py
