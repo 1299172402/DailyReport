@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main ]
   schedule:
-    - cron: '30 19 * * *'
+    - cron: '10 * * * *'
     # 现在UTC时间是19:30，北京时间是凌晨3:30
 
 jobs:
@@ -25,4 +25,4 @@ jobs:
       run: pip install requests
 
     - name: Run
-      run: python DailyReport.py
+      run: python TokenExpiredTest.py
