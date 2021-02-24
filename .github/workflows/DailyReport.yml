@@ -5,7 +5,7 @@ on:
     branches: [ main ]
   workflow_dispatch:
   schedule:
-    - cron: '0/5 * * * *'
+    - cron: '0 3/8 * * *'
     # 现在UTC时间是19:30，北京时间是凌晨3:30
 
 jobs:
