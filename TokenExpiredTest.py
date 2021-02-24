@@ -12,7 +12,7 @@ def main():
     print(res.text)
 
     localtime = str(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
-    url = f"http://sc.ftqq.com/SCU138613Tf980299c10ed0bc98b9620d68af8f0635fe415a3271b3.send?text=Token有效期监控 {localtime} {res.text}"
+    url = f"http://sc.ftqq.com/SCU138613Tf980299c10ed0bc98b9620d68af8f0635fe415a3271b3.send?text=Token有效期监控 {localtime}&desp={res.text}"
     requests.post(url)
 
 if __name__ == "__main__":
