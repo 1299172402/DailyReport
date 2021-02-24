@@ -21,5 +21,8 @@ jobs:
       with:
         python-version: 3.7
 
+    - name: Install dependencies
+      run: pip install requests
+
     - name: Run
       run: python DailyReport.py
