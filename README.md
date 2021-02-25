@@ -18,15 +18,15 @@
 
 ### Q&A
 
-- 如何获取token
+- 如何获取token?
 
-  使用fiddler[下载地址](https://www.telerik.com/download/fiddler)在电脑上抓包。
+  使用fiddler（[下载地址](https://www.telerik.com/download/fiddler)）在电脑上抓包。
   
   fiddler建议使用第4版（亦称Classic版，2021.02.25）。
   
-  建议使用微信电脑版抓包，因为手机微信7.0以后对安卓只信任自己内置的SSL证书[详细信息](https://testerhome.com/topics/17746)，或者可以尝试iOS。
+  建议使用微信电脑版抓包，因为手机微信7.0以后对安卓只信任自己内置的SSL证书（[详细信息](https://testerhome.com/topics/17746))，或者可以尝试iOS。
   
-- 如何配置Server酱
+- 如何配置Server酱?
 
   请致其[官网](sc.ftqq.com)查看
   
