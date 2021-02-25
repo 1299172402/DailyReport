@@ -17,7 +17,7 @@ def main():
     serverkey = os.environ["serverkey"]
     serverkey_turbo = os.environ["serverkey_turbo"]
     scurl = f"http://sc.ftqq.com/{serverkey}.send?text=上报结果 {localtime}&desp={res.text}"
-    scturl = f"https://sctapi.ftqq.com/{serverkey_turbo}.send?title=上报结果 {localtime}&desp={res.text}"
+    scturl = f"https://sctapi.ftqq.com/{serverkey_turbo}.send?title=上报结果 {localtime}   {res.text}"
     requests.post(scurl)
     requests.post(scturl)
 
