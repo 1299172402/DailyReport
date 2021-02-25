@@ -28,6 +28,6 @@
   
 - 如何配置Server酱?
 
-  请致其[官网](sc.ftqq.com)查看
+  请至其[官网](sc.ftqq.com)查看
   
 
