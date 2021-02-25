@@ -13,7 +13,7 @@
 |Name |Value|
 |---|---|
 |TOKEN|从 加油投票平台 上获取的token|
-|SCKEY|（可选）Server酱旧消息模板sckey）|
+|SCKEY|（可选）Server酱旧消息模板sckey|
 |SENDKEY_TURBO|（可选）Server酱企业微信推送sendkey|
 
 ### Q&A
