@@ -1,59 +1,23 @@
 import requests
+import os
+import time
 
 def main():
     url = "https://reserve.25team.com/wxappv1/yi/addReport"
-
     headers  = {
-        'Host':'reserve.25.team',
-        'Connection':'keep-alive',
-        'Content-Length':'659',
-        'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat',
-        'content-type':'application/json',
-        'token':'d11acdbaba660c7bee2c431caecd1f55',  #自己的token
-        'referer':'https://servicewechat.com/wxd2bebfc67ee4a7eb/58/page-frame.html',
-        'Accept-Encoding':'gzip,deflate,br'
+        "User-Agent":"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat",
+        "token": os.environ["mytoken"], #"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2NjQ0MywiZXhwIjoxNzExMzYwNzMwLCJpc3MiOiJnaW4tYmxvZyJ9.hD_uLNUVO0TJNczcwqxb3kBHXk5ywG5MKx4CIuxMv4A",  #自己的token
+        "referer":"https://servicewechat.com/wxd2bebfc67ee4a7eb/73/page-frame.html",
     }
-
-    data = {
-        "content": {
-            "0": "否",
-            "1": "",
-            "2": "",
-            "3": "",
-            "4": "",
-            "5": "否",
-            "6": "否",
-            "7": "否",
-            "8": "正常",
-            "9": "37.3及以下",
-            "10": "浙江省杭州市江干区九和路 经纬度:120.24563937717014,30.30185818142361",
-            "11": "否",
-            "12": "",
-            "13": "",
-            "14": "正常（体温37.2及以下）",
-            "15": "否",
-            "16": ""
-        },
-        "version": 14,
-        "stat_content": {
-            "今日是否在京": "否",
-            "今日是否在湖北？": "否",
-            "今日是否“密切接触”疑似或确诊人群？": "否",
-            "今日是否在集中隔离点隔离": "否"
-        },
-        "location": {
-            "province": "浙江省",
-            "country": "中国",
-            "city": "杭州市",
-            "longitude": 120.24563937717014,
-            "latitude": 30.30185818142361
-        },
-        "sick": "正常（体温37.3及以下）",
-        "accept_templateid": ""
-    }
-
+    data = {"content":{"0":"否","1":"","2":"","3":"","4":"","5":"低风险","6":"浙江省杭州市拱墅区莫干山路 经纬度:120.15515,30.27415","7":"正常","8":"37.3以下","9":"绿色","10":"均正常","11":"无","12":"否","13":"","14":""},"version":16,"stat_content":{},"location":{"province":"浙江省","country":"中国","city":"杭州市","longitude":120.15515,"latitude":30.27415},"sick":"","accept_templateid":""}
     res = requests.post(url, headers=headers, json=data)
     print(res.text)
+    
+    localtime = str(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+    scurl = f"http://sc.ftqq.com/{os.environ["serverkey"]}.send?text=上报结果 {localtime}&desp={res.text}"
+    scturl = f"https://sctapi.ftqq.com/{os.environ["serverkey_turbo"]}.send?title=上报结果 {localtime}&desp={res.text}"
+    requests.post(scurl)
+    requests.post(scturl)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
