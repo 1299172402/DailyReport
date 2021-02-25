@@ -14,8 +14,10 @@ def main():
     print(res.text)
     
     localtime = str(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
-    scurl = f"http://sc.ftqq.com/{os.environ["serverkey"]}.send?text=上报结果 {localtime}&desp={res.text}"
-    scturl = f"https://sctapi.ftqq.com/{os.environ["serverkey_turbo"]}.send?title=上报结果 {localtime}&desp={res.text}"
+    serverkey = os.environ["serverkey"]
+    serverkey_turbo = os.environ["serverkey_turbo"]
+    scurl = f"http://sc.ftqq.com/{serverkey}.send?text=上报结果 {localtime}&desp={res.text}"
+    scturl = f"https://sctapi.ftqq.com/{serverkey_turbo}.send?title=上报结果 {localtime}&desp={res.text}"
     requests.post(scurl)
     requests.post(scturl)
 
