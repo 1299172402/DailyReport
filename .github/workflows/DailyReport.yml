@@ -29,3 +29,5 @@ jobs:
       run: python TokenExpiredTest.py
       env: 
         mytoken: ${{secrets.TOKEN}}
+        serverkey: ${{secrets.SCKEY}}
+        serverkey_turbo: ${{secrets.SENDKEY_TURBO}}
