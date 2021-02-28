@@ -58,6 +58,6 @@
 
 - 能看看相关的api吗?
 
-  请至[此处](https://github.com/1299172402/DailyReport/APIInfo.md)
+  请至[此处](https://github.com/1299172402/DailyReport/blob/main/APIInfo.md)
   
 
