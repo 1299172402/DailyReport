@@ -7,11 +7,11 @@ def main():
     url = "https://reserve.25team.com/wxappv1/yi/index?version=16"
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat",
-        "token": os.environ["mytoken"], #"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2NjQ0MywiZXhwIjoxNzExMzYwNzMwLCJpc3MiOiJnaW4tYmxvZyJ9.hD_uLNUVO0TJNczcwqxb3kBHXk5ywG5MKx4CIuxMv4A", #
+        "token": os.environ["mytoken"], # "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2NjQ0MywiZXhwIjoxNzExMzYwNzMwLCJpc3MiOiJnaW4tYmxvZyJ9.hD_uLNUVO0TJNczcwqxb3kBHXk5ywG5MKx4CIuxMv4A",
         "Referer": "https://servicewechat.com/wxd2bebfc67ee4a7eb/73/page-frame.html",
     }
-    res = json.loads(requests.get(url, headers=headers).text)
-    
+    res_origin = requests.get(url, headers=headers).text
+    res = json.loads(res_origin)
     conf = json.dumps(json.loads(res["data"]["conf_titles"]), indent=4, ensure_ascii=False)
     print(conf)
     print()
@@ -20,10 +20,15 @@ def main():
     res = json.dumps(res, indent=4, ensure_ascii=False)
     print(res)
 
-    localtime = str(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
-    url = f"http://sc.ftqq.com/SCU138613Tf980299c10ed0bc98b9620d68af8f0635fe415a3271b3.send?text={title}&desp={localtime}<br>{res}<br>{conf}"
-    requests.post(url)
+    localtime = str(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()+8*60*60))) # 东八区（Github是UTC）
+    serverkey = os.environ["serverkey"]
+    url = f"http://sc.ftqq.com/{serverkey}.send"
+    data = {
+        "text": title + localtime,
+        "desp": conf + "\n\r" + res
+    }
 
+    # 更新时强制提醒
     if title != "获取index成功":
         print(14/0)
 

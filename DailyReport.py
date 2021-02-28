@@ -13,13 +13,13 @@ def main():
     res = requests.post(url, headers=headers, json=data)
     print(res.text)
     
-    localtime = str(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+    localtime = str(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()+8*60*60))) # 东八区（Github是UTC）
     serverkey = os.environ["serverkey"]
-    # serverkey_turbo = os.environ["serverkey_turbo"]
+    serverkey_turbo = os.environ["serverkey_turbo"]
     scurl = f"http://sc.ftqq.com/{serverkey}.send?text=上报结果 {localtime}&desp={res.text}"
-    # scturl = f"https://sctapi.ftqq.com/{serverkey_turbo}.send?title=上报结果 {localtime}&desp={res.text}"
+    scturl = f"https://sctapi.ftqq.com/{serverkey_turbo}.send?title=上报结果 {localtime}&desp={res.text}"
     requests.post(scurl)
-    # requests.post(scturl)
+    requests.post(scturl)
 
 if __name__ == "__main__":
     main()

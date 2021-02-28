@@ -19,6 +19,8 @@
 |SCKEY|（可选）Server酱旧消息模板sckey|
 |SENDKEY_TURBO|（可选）Server酱企业微信推送sendkey|
 
+3. （**极其重要**）在 `DailyReport.py` 中配置每天打卡的选项（特别是**地理位置/经纬度**）
+
 ### Q&A
 
 - 如何获取token?
@@ -45,9 +47,17 @@
   ![捕获](https://user-images.githubusercontent.com/29673994/109407336-fc609c80-79ba-11eb-9a12-f638153370e9.PNG)
   [无法显示图片?](https://github.com/1299172402/hosts)
 
-  
+- 我可以修改打卡时间吗?
+
+  当然可以，请至 `.github\workflows\DailyReport.yml` 修改corn处的时间  
+  现在的时间是每天凌晨三点半，既不会妨碍你零点时抢第一个打卡，又可以保证你起床时已经打好了卡。  
+
 - 如何配置Server酱?
 
   请至其[官网](sc.ftqq.com)查看
+
+- 能看看相关的api吗?
+
+  请至[此处](https://github.com/1299172402/DailyReport/APIInfo.md)
   
 

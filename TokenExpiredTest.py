@@ -12,8 +12,13 @@ def main():
     res = requests.get(url, headers=headers)
     print(res.text)
 
-    localtime = str(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
-    url = f"http://sc.ftqq.com/SCU138613Tf980299c10ed0bc98b9620d68af8f0635fe415a3271b3.send?text=Token有效期监控 {localtime}&desp=自2021.02.25 19:00之前获得\n{res.text}"
+    localtime = str(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()+8*60*60))) # 东八区（Github是UTC）
+    serverkey = os.environ["serverkey"]
+    url = f"http://sc.ftqq.com/{serverkey}.send"
+    data = {
+        "text": f"Token有效期监控 {localtime}",
+        "desp": f"自2021.02.25 19:00之前获得\n\r{res.text}"
+    }
     requests.post(url)
 
 if __name__ == "__main__":
