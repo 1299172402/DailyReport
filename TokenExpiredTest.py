@@ -19,7 +19,7 @@ def main():
         "text": f"Token有效期监控 {localtime}",
         "desp": f"自2021.02.25 19:00之前获得\n\r{res.text}"
     }
-    requests.post(url)
+    requests.post(url, data=data)
 
 if __name__ == "__main__":
     main()

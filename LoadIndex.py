@@ -27,6 +27,7 @@ def main():
         "text": title + localtime,
         "desp": conf + "\n\r" + res
     }
+    requests.post(url, data=data)
 
     # 更新时强制提醒
     if title != "获取index成功":
