@@ -27,6 +27,7 @@ jobs:
 
     - name: Run
       run: |
+        echo "[Token] $mytoken"
         # python TokenExpiredTest.py
         echo 
         python LoadIndex.py
