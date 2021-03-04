@@ -28,7 +28,9 @@ jobs:
     - name: Run
       run: |
         # python TokenExpiredTest.py
+        echo 
         python LoadIndex.py
+        echo
         python DailyReport.py
       env: 
         mytoken: ${{secrets.TOKEN}}
