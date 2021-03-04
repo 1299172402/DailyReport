@@ -27,7 +27,7 @@ jobs:
 
     - name: Run
       run: |
-        python TokenExpiredTest.py
+        # python TokenExpiredTest.py
         python LoadIndex.py
         python DailyReport.py
       env: 
