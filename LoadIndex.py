@@ -7,7 +7,8 @@ def main():
     url = "https://reserve.25team.com/wxappv1/yi/index?version=16"
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat",
-        "Referer": "https://servicewechat.com/wxd2bebfc67ee4a7eb/73/page-frame.html",
+        "token": os.environ["mytoken"],
+        "Referer": "https://servicewechat.com/wxd2bebfc67ee4a7eb/73/page-frame.html"
     }
     res_origin = requests.get(url, headers=headers).text
     res = json.loads(res_origin)
