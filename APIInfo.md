@@ -5,8 +5,8 @@
 
 |参数名|值|必要性|备注|
 |---|---|---|---|
-|User-Agent| |不必要|建议使用微信浏览器UA|
-|Referer|`https://servicewechat.com/wxd2bebfc67ee4a7eb/73/page-frame.html`|必要| |
+|User-Agent| |可选|建议使用微信浏览器UA|
+|Referer| `https://servicewechat.com/wxd2bebfc67ee4a7eb/73/page-frame.html` |必要| |
 |token| |必要|验证身份的token|
 
 
@@ -94,7 +94,7 @@ body
 		"3": "",
 		"4": "",
 		"5": "低风险",
-		"6": "xxxxx（地址） 经纬度:116.38772,39.9075",
+		"6": "xxxxx（地址） 经纬度:116.38570103454591,39.91745518274039",
 		"7": "正常",
 		"8": "37.3以下",
 		"9": "绿色",
@@ -110,8 +110,8 @@ body
 		"province": "北京市",
 		"country": "中国",
 		"city": "北京市",
-		"longitude": 116.38772,
-		"latitude": 39.9075
+		"longitude": 116.38570103454591,
+		"latitude": 39.91745518274039
 	},
 	"sick": "",
 	"accept_templateid": ""
